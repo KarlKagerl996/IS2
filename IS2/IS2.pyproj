@@ -37,6 +37,7 @@
     <Compile Include="IS2\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IS2\WebPage1.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
