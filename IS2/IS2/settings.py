@@ -15,7 +15,7 @@ import posixpath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+#BASE_DIR = r'C:\Users\VE522FZ\OneDrive - EY\Documents\IS2\IS2\IS2'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'Modulo_Desarrollo',
     'Roles',
     'Permisos',
-    'Usuarios',
+    'Usuarios.apps.UsuariosConfig',
+    'accounts.apps.AccountsConfig',
     'Modulo_Gestion_Configuracion',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -119,11 +120,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIR= [
-    os.path.join(BASE_DIR, 'IS/static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+STATICFILES_DIRS= [
+    posixpath.join(*(BASE_DIR.split(os.path.sep) + ['IS2/static']))
 ]
-#STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+print ("base dir path", BASE_DIR)
+
 #STATICFILES_DIR = [
 #    os.path.join(BASE_DIR, 'IS/static')
 #]
@@ -131,3 +134,4 @@ STATICFILES_DIR= [
 
 #MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 #MEDIA_URL = '/media/'
+#FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\VE522FZ\\OneDrive - EY\\Documents\\IS2\\IS2\\IS2\\IS\\static'
