@@ -84,13 +84,14 @@ WSGI_APPLICATION = 'IS2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'NAME': 'test',
 		'USER': 'postgres',
 		'PASSWORD': 'postgres',
 		'HOST': 'localhost',
 		'PORT': 5432,
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -126,6 +127,9 @@ STATICFILES_DIRS= [
     posixpath.join(*(BASE_DIR.split(os.path.sep) + ['IS2/static']))
 ]
 print ("base dir path", BASE_DIR)
+
+
+#AUTH_USER_MODEL = "Usuarios.User"
 
 #STATICFILES_DIR = [
 #    os.path.join(BASE_DIR, 'IS/static')

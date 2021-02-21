@@ -22,5 +22,16 @@ class Usuario(models.Model):
     def __str__ (self):
         return self.nombre
 
+# Create your models here.
+#cedula: VARCHAR NOT NULL [ PK ]
+#id_rol: NUMERIC NOT NULL [ FK ]
+#nombre: VARCHAR NOT NULL
+#apellido: VARCHAR NOT NULL
+#email: VARCHAR NOT NULL
+#username: VARCHAR NOT NULL
+#password: VARCHAR NOT NULL
+#telefono: VARCHAR NOT NULL
+    
+
     
 

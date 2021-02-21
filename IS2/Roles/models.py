@@ -10,3 +10,4 @@ class Rol(models.Model):
         return self.nombre_rol
 
 
+

@@ -4,7 +4,7 @@ from .models import Usuario
 
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ('cedula','nombre','apellido')
-    list_display_links = ('cedula', 'nombre', 'apellido')
+    list_display_links = ('cedula',)
     list_filter = ('cedula',)
     search_fields = ('cedula',)
 
