@@ -27,10 +27,3 @@ def login(request):
 
 def dashboard(request):
     return render(request, 'accounts/dashboard.html')
-
-
-def logout(request):
-	# Finalizamos la sesión
-    do_logout(request)
-    # Redireccionamos a la portada
-    return redirect('')
