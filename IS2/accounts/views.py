@@ -20,7 +20,7 @@ def login(request):
                 if usuario.username==username and usuario.password==password:
                     return redirect('dashboard')       
                 else:
-                    return redirect('') 
+                    return redirect('login') 
     else:
         return render(request, 'accounts/login.html')
 
