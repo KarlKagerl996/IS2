@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import posixpath
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #BASE_DIR = r'C:\Users\VE522FZ\OneDrive - EY\Documents\IS2\IS2\IS2'
@@ -128,7 +129,7 @@ STATICFILES_DIRS= [
 ]
 print ("base dir path", BASE_DIR)
 
-
+LOGOUT_REDIRECT_URL = '/login'
 #AUTH_USER_MODEL = "Usuarios.User"
 
 #STATICFILES_DIR = [
@@ -139,3 +140,6 @@ print ("base dir path", BASE_DIR)
 #MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 #MEDIA_URL = '/media/'
 #FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\VE522FZ\\OneDrive - EY\\Documents\\IS2\\IS2\\IS2\\IS\\static'
+
+#from django.contrib.auth import logout as do_logout
+

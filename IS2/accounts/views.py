@@ -3,7 +3,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from  Usuarios.models import Usuario
 from  Roles.models import Rol
-from django.contrib.auth import logout as do_logout
+
 # Create your views here.
 
 def login(request):

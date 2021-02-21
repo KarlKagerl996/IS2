@@ -23,9 +23,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from accounts import views
 
+from django.contrib.auth.models import User, Group
+
+admin.site.unregister(User)
+admin.site.unregister(Group)
+
+
 urlpatterns = [
     # Uncomment the next line to enable the admin: 
     path('', views.login, name='login'),
+    path('login', views.login, name='login'),
     path('dashboard', views.dashboard, name='dashboard'),
     #path('dashboard/', include('accounts.urls')),
     path('admin/', admin.site.urls),

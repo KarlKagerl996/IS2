@@ -1,7 +1,6 @@
 from django.db import models
 from Roles.models import Rol
 # Create your models here.
-
 #cedula: VARCHAR NOT NULL [ PK ]
 #id_rol: NUMERIC NOT NULL [ FK ]
 #nombre: VARCHAR NOT NULL
@@ -10,6 +9,7 @@ from Roles.models import Rol
 #username: VARCHAR NOT NULL
 #password: VARCHAR NOT NULL
 #telefono: VARCHAR NOT NULL
+
 class Usuario(models.Model):
     cedula = models.IntegerField(primary_key=True)
     id_rol = models.ForeignKey(Rol, on_delete = models.DO_NOTHING)
