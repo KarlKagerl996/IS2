@@ -33,7 +33,7 @@ urlpatterns = [
     # Uncomment the next line to enable the admin: 
     path('', views.login, name='login'),
     path('login', views.login, name='login'),
-    path('dashboard', views.dashboard, name='dashboard'),
+    #path('dashboard', views.dashboard, name='dashboard'),
     #path('dashboard/', include('accounts.urls')),
     path('admin/', admin.site.urls),
 ] #+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

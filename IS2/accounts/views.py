@@ -18,9 +18,11 @@ def login(request):
             #Para los usuarios que no son admin
             for usuario in Usuario.objects.all():
                 if usuario.username==username and usuario.password==password:
-                    return redirect('dashboard')       
+                    #return redirect('dashboard')
+                    return render(request,'accounts/dashboard.html') 
                 else:
-                    return redirect('login') 
+                    return redirect('login')
+                    #return render(request,'accounts/login.html') 
     else:
         return render(request, 'accounts/login.html')
 
