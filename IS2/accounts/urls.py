@@ -6,6 +6,6 @@ urlpatterns = [
     #path('login', vie),
     #path('index',views.index , name= 'index'),
     path('login',views.login , name= 'login'),
-    path('dashboard',views.dashboard, name= 'dashboard')
+    path('dashboard',views.dashboard, name= 'dashboard')#aca tengo que mandar a la vista del usuario 
 ]
 
