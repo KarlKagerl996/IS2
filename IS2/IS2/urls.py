@@ -22,6 +22,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from accounts import views
+from tarea.views import registrar_tarea,listar_tarea
+from proyecto.views import registrar_proyecto,listar_proyecto,editar_proyecto,eliminar_proyecto
 
 from django.contrib.auth.models import User, Group
 
@@ -35,5 +37,12 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('dashboard', views.dashboard, name='dashboard'),
     #path('dashboard/', include('accounts.urls')),
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
+    path('registrar_tarea/',registrar_tarea),
+    path('listar_tarea/',listar_tarea),
+    path('registrar_proyecto/',registrar_proyecto),
+    path('listar_proyecto/',listar_proyecto),
+    path('editar_proyecto/',editar_proyecto),
+    path('eliminar_proyecto/',eliminar_proyecto)
 ] #+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+    
