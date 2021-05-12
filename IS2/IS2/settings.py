@@ -32,8 +32,6 @@ ALLOWED_HOSTS = []
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
 INSTALLED_APPS = [
     # Add your apps here to enable them
-    'proyecto',
-    'tarea',
     'Modulo_Desarrollo',
     'Roles',
     'Permisos',
@@ -89,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'test',
 		'USER': 'postgres',
-		'PASSWORD': 'admin',
+		'PASSWORD': 'postgres',
 		'HOST': 'localhost',
 		'PORT': 5432,
     }
