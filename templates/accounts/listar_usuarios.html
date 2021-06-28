@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Usuarios{% endblock %}
+{% block h1 %}Lista de Usuarios{% endblock %}
+{% block table %}
+
+<table>
+  <tr>
+    <th>Usuario</th>
+    <th>Cedula</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Email</th>
+    <th>Proyecto</th>
+    <th>Telefono</th>
+    <th>¿Staff?</th>
+    <th>¿Activo?</th>
+    <th>¿Superuser?</th>
+    <th></th>
+    <th></th>
+
+  </tr>
+  {% if user_list %}
+  {% for userr in user_list %}
+  <tr>
+    <td> <a href="{{ userr.get_absolute_url }}">{{ userr.username }}</a> </td>
+    <td>{{userr.cedula}}</td>
+    <td>{{userr.first_name}}</td>
+    <td>{{userr.last_name}}</td>
+    <td>{{userr.email}}</td>
+    <td>{{userr.proyecto}}</td>
+    <td>{{userr.telefono}}</td>
+    <td>{{userr.is_staff}}</td>
+    <td>{{userr.is_active}}</td>
+    <td>{{userr.is_superuser}}</td>
+    
+    <td><a class="btn btn-success btn-sm" href="{% url 'editarusuario' userr.id %}">Editar</a></td>
+    <td><a class="btn btn-danger btn-sm" href="{% url 'eliminarusuario' userr.id %}">Eliminar</a></td>
+  </tr>
+  {% endfor %}
+  {% else %}
+  <p>No existen usuarios.</p>
+  {% endif %}
+</table>
+<div class="container">
+</div>
+{% endblock %}

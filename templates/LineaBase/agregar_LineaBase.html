@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block title %}Crear Linea Base{% endblock %}
+{% block h1 %}Crear una nueva Linea Base{% endblock %}
+{% block content %}
+  <form method="post" novalidate action="{% url 'crearlineabase'%}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Crear Linea Base</button>
+  </form>
+{% endblock %}

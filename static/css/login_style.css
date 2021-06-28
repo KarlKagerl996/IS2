@@ -1,0 +1,11 @@
+
+.bg{
+    background-color: rgb(5, 62, 100);
+}
+.cont-form{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000;
+    width: 350px;
+    height: 400px;
+}

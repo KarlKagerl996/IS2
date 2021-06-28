@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block title %}Asignar Proyecto a Usuario{% endblock %}
+{% block h1 %}Asignar Proyecto a Usuario: {{userr.username}}{% endblock %}
+{% block content %}
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Asignar / Cambiar</button>
+  </form>
+{% endblock %}

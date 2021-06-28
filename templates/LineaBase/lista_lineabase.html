@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Lista de Lineas Base{% endblock %}
+{% block h1 %}Lista de Lineas Bases{% endblock %}
+    {% block table %}
+
+    <table>
+        <tr>
+          <th>Proyecto</th>
+          <th>Estado</th>
+          <th>Version</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Fase</th>
+          <th ></th>
+          <th></th>
+          <th></th>
+        </tr>
+        {% if lineabase_list %}
+        {% for LineaBase in lineabase_list %}
+        <tr>
+        <td>{{LineaBase.id_proyecto}}</td>
+        <td> {{ LineaBase.estado }} </td>
+        <td>{{LineaBase.version}}</td>
+        <td>{{LineaBase.nombre}}</td>
+        <td>{{LineaBase.descripcion}}</td>
+        <td>{{LineaBase.fase}}</td>
+        {% if  user.id_rol_id == 1%}
+        <td><a class="btn btn-success btn-sm disabled" href="{% url 'modificarlineabase' LineaBase.id %}">Editar</a></td>
+        <td><a class="btn btn-danger btn-sm disabled" href="{% url 'eliminarlineabase' LineaBase.id %}">Eliminar</a></td>
+        {% else %}
+        <td><a class="btn btn-success btn-sm" href="{% url 'modificarlineabase' LineaBase.id %}">Editar</a></td>
+        <td><a class="btn btn-danger btn-sm" href="{% url 'eliminarlineabase' LineaBase.id %}">Eliminar</a></td>
+        {% endif %}
+        <td><a class="btn btn-dark btn-sm"href="{% url 'listaritems' LineaBase.id %}">Ver Items</a></td>
+
+      </tr>
+        {% endfor %}
+      {% else %}
+        <p>No existen proyectos.</p>
+      {% endif %}
+      </table>
+    <div class="container">
+  </div>
+  {% endblock %}

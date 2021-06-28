@@ -1,0 +1,41 @@
+h1 {
+  display: block;
+  font-size: 6em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: blueviolet;
+}
+.container {
+  grid-template-columns: 50px 300px;
+  grid-template-rows: 200px 75px;
+}
+table {
+  width: 100%;
+  background-color: #f1f1c1;
+}
+table tr:nth-child(even) {
+  background-color: #eee;
+}
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+table th {
+  color: white;
+  background-color: rgb(67, 87, 81);
+}
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+th,
+td {
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar{
+  box-shadow: 0px 0px 8px #000;
+}

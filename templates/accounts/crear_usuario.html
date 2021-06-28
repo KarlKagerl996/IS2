@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Crear Usuarios{% endblock %}
+{% block h1 %}Crear un usuario{% endblock %}
+{% block content %}
+  <form method="post" novalidate action="{% url 'crearusuario'%}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Crear Usuario</button>
+  </form>
+{% endblock %}

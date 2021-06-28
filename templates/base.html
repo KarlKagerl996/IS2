@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <span class="d-flex justify-content-start" style="background-color: rgb(109, 17, 170);">
+    <h6 style="color: white;"> Bienvenido, {{ user.first_name}} {{user.last_name}} </h3>
+  </span>
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body class="bg">
+  <nav class="navbar navbar-expand-lg navbar-dark barra" style="background-color: #734194">
+    <a class="navbar-brand" href="{% url 'index'%}">Inicio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% if user.id_rol_id == 1 %}
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" aria-disabled="true">
+            Proyectos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown"style="background-color: #734194;">
+            <a class="dropdown-item disabled " href="#"style="color : #fffff;">Crear Proyecto</a>
+            <a class="dropdown-item" href="{% url 'listaproyectos'%}"style="color : #ffffff;">Listar Proyectos</a>
+            <a class="dropdown-item disabled" href="#"style="color :#fffff;">Agregar linea base</a>
+            <a class="dropdown-item" href="{% url 'listalineabase'%}"style="color : #ffffff;">Listar lineas bases</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          {% else %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Proyectos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown"style="background-color: #734194;">
+              <a class="dropdown-item" href="{% url 'crearproyecto'%}"style="color : #ffffff;">Crear Proyecto</a>
+              <a class="dropdown-item" href="{% url 'listaproyectos'%}"style="color : #ffffff;">Listar Proyectos</a>
+              <a class="dropdown-item" href="{% url 'crearlineabase'%}"style="color : #ffffff;">Agregar linea base</a>
+              <a class="dropdown-item" href="{% url 'listalineabase'%}"style="color : #ffffff;">Listar lineas bases</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+          {% endif %}
+          {% if user.id_rol_id == 1 %}
+            <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Usuarios
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#734194;">
+              <a class="dropdown-item" href="{% url 'crearusuario'%}" style="color : #ffffff;">Crear Usuario</a>
+              <a class="dropdown-item" href="{% url 'listausuarios'%}"style="color : #ffffff;">Listar Usuarios</a>
+              <a class="dropdown-item" href="{% url 'listarasignar'%}"style="color : #ffffff;">Asignar Usuario a un Proyecto</a>
+            </div>
+            {% else %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Usuarios
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #734194;">
+              <a class="dropdown-item" href="{% url 'crearusuario'%}" style="color : #ffffff;">Crear Usuario</a>
+              <a class="dropdown-item" href="{% url 'listausuarios'%}"style="color : #ffffff;">Listar Usuarios</a>
+              <a class="dropdown-item" href="{% url 'listarasignar'%}"style="color : #ffffff;">Asignar Usuario a un Proyecto</a>
+            </div>
+          </li>
+          {% endif %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'logout'%}">Cerrar Sesión <span class="sr-only">(current)</span></a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1 class="mt-2 ">{% block h1 %}{% endblock %}</h1>
+    </div>
+    <div class="row justify-content-center">
+      {% block table %}
+
+      {% endblock %}
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12">
+
+        {% block content %}
+
+        {% endblock %}
+        <hr class="mt-0 mb-4">
+
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+    integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

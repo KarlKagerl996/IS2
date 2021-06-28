@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Lista Items{% endblock %}
+{% block h1 %}Lista de Items{% endblock %}
+{% block table %}
+
+<div class=row>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Version</th>
+      <th>Descripcion</th>
+      <th>Estado</th>
+      <th>Prioridad</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% if item_list %}
+    {% for Item in item_list %}
+    <tr>
+      <td> <a href="{{ Item.get_absolute_url }}">{{ Item.nombre }}</a> </td>
+      <td>{{Item.version}}</td>
+      <td>{{Item.descripcion}}</td>
+      <td>{{Item.estado}}</td>
+      <td>{{Item.prioridad}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      {% if Item.estado == "culminado" or user.id_rol_id == 1%}
+        <td><a class="btn btn-success btn-sm disabled" href="{% url 'modificaritem' Item.id %}">Editar</a></td>
+        <td><a class="btn btn-danger btn-sm disabled" href="{% url 'eliminaritem' Item.id %}">Eliminar</a></td>
+      {% else %}
+      <td><a class="btn btn-success btn-sm" href="{% url 'modificaritem' Item.id %}">Editar</a></td>
+      <td><a class="btn btn-danger btn-sm" href="{% url 'eliminaritem' Item.id %}">Eliminar</a></td>
+      {% endif %}
+      
+      <td></td>
+      <td></td>
+
+      {% endfor %}
+      {% else %}
+      <td>No existen items.</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% endif %}
+  </table>
+
+</div>
+</div>
+  <div class="row justify-content-center mt-4">
+    <a class="btn btn btn-primary" href="{% url 'crearitem' lineabase.id %} " role="button">Agregar Item</a>
+  </div>
+</div>
+{% endblock %}
